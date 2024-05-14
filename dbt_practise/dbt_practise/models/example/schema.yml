@@ -1,0 +1,34 @@
+
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  - name: dates
+    description: "A date test"
+  - name: incremental_time
+    description: "time"
+  - name: playing_with_tests
+    columns:
+      - name: c_custkey
+        tests:
+          - not null
+          - unique
+      - name: c_mktsegment
+        tests:
+          - accepted_values:
+              values: ['BUILDING', 'AUTOMOBILE', 'MACHINERY', 'HOUSEHOLD', 'FURNITURE']
